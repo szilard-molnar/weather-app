@@ -8,6 +8,8 @@ $(document).ready(function() {
 
         currentWeatherData(inputCity);
 
+        fiveDayForecast (inputCity)
+
     });
 
     function addCityToList (inputCity) {
@@ -23,8 +25,6 @@ $(document).ready(function() {
         }).then(function(data) {
             
             //html content to create city card to display info
-            // let card = $("div").addClass("card");
-            // let cardBody = $("div").addClass("card-body");
             let card = $("<div>").addClass("card");
             let cardBody = $("<div>").addClass("card-body");
             let temperature = $("<p>").addClass("card-text").text("Temperature: " + data.main.temp + "F");
@@ -35,6 +35,17 @@ $(document).ready(function() {
             card.append(cardBody);
             $("#weatherToday").html(card);
         });
+    }
+
+    function fiveDayForecast (inputCity) {
+        $.ajax({
+            method: "GET",
+            url: "https://api.openweathermap.org/data/2.5/forecast?appid=70e75079715aaa88f8897acff6d0352b&q=" + inputCity
+        }).then(function(data) {
+            
+            //html content to display 5 day forecast
+            
+        })
     }
 
 });
