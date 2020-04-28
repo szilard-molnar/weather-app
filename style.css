@@ -1,0 +1,16 @@
+body {
+    margin: -1.5%;
+    padding:0px;
+    background-color: rgb(228, 225, 226);
+}
+
+#heading {
+    background-color: rgb(7, 103, 138);
+    width: 100%;
+    color: rgba(255, 255, 255, 0.81);
+}
+
+#siteTitle {
+    text-align: center;
+    padding: 2%;
+}
