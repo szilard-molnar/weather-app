@@ -14,3 +14,13 @@ body {
     text-align: center;
     padding: 2%;
 }
+
+.searchBar, .weatherToday, .weatherForecast {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.weatherForecast {
+    margin-top: 5px;
+}
