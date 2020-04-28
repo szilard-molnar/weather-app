@@ -24,3 +24,13 @@ body {
 .weatherForecast {
     margin-top: 5px;
 }
+
+ul {
+    margin-top: 7% !important;
+}
+
+.newAddedRow {
+    background-color: rgba(0, 255, 255, 0.392) !important;
+    width: 115%; 
+    margin-left: -17% !important;   
+}
