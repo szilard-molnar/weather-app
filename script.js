@@ -25,9 +25,15 @@ $(document).ready(function() {
             //html content to create city card to display info
             // let card = $("div").addClass("card");
             // let cardBody = $("div").addClass("card-body");
+            let card = $("<div>").addClass("card");
+            let cardBody = $("<div>").addClass("card-body");
+            let temperature = $("<p>").addClass("card-text").text("Temperature: " + data.main.temp + "F");
+            let windSpeed = $("<p>").addClass("card-text").text("Wind speed: " + data.wind.speed + "mph");
+            let sunny = $("<p>").addClass("card-text").text("Cloudy/Sunny: " + data.weather[0].main + ".");
             let cardTitle = $("<h2>").addClass("card-title").text(data.name);
-
-            $("#weatherToday").append(cardTitle);
+            cardBody.append(cardTitle, sunny, temperature, windSpeed);
+            card.append(cardBody);
+            $("#weatherToday").html(card);
         });
     }
 
