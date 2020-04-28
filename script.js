@@ -2,10 +2,11 @@ $(document).ready(function() {
 
     $("#searchButton").on("click", function() {
         let inputCity = $("#citySearch").val();
+        localStorage.setItem("city", inputCity);
 
         addCityToList(inputCity);
 
-        console.log(currentWeatherData(inputCity));
+        currentWeatherData(inputCity);
 
     });
 
@@ -17,12 +18,12 @@ $(document).ready(function() {
 
     function currentWeatherData (inputCity) {
         $.ajax({
-            type: "GET",
-            url: "api.openweathermap.org/data/2.5/weather?q=" + inputCity +"&appid=bc27f66aec34ec713bbdaac02025b3ac",
-            dataType: "json",
-            success: function(data) {
-                console.log(data.name);
-            }
+            method: "GET",
+            url: "http://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&units=imperial&appid=d4e0d5067632cdd06a4bad12b5b1e650"
+        }).then(function(data) {
+            
+            //html content to create city card to display info
+
         })
     }
 
