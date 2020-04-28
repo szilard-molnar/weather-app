@@ -23,8 +23,12 @@ $(document).ready(function() {
         }).then(function(data) {
             
             //html content to create city card to display info
+            // let card = $("div").addClass("card");
+            // let cardBody = $("div").addClass("card-body");
+            let cardTitle = $("<h2>").addClass("card-title").text(data.name);
 
-        })
+            $("#weatherToday").append(cardTitle);
+        });
     }
 
 });
