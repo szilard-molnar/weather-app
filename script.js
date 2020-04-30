@@ -42,8 +42,29 @@ $(document).ready(function() {
             method: "GET",
             url: "https://api.openweathermap.org/data/2.5/forecast?appid=70e75079715aaa88f8897acff6d0352b&q=" + inputCity
         }).then(function(data) {
-            
+
+            $("#weatherForecast").html("<h2>5-Day Forecast</h2>").append("<div class=\"row\">");
+
             //html content to display 5 day forecast
+
+            let myNecessaryData = data.list;
+
+            for(let i = 0; i < myNecessaryData.length; i++)
+            {   
+                let myDate = myNecessaryData[i].dt_txt;
+
+                let forecastDate = myDate.split(" ")[0];
+
+                if(myDate.split(" ")[1] === "00:00:00")
+                {
+                    let card = $("<div>").addClass("card col-md-2").attr("id", "forecastCard");
+                    let cityName = $("<h5>").addClass("card-title").attr("id", "forecastCityName").text(data.city.name);
+                    let date = $("<p>").addClass("card-text").text(forecastDate);
+                    let temperature = $("<p>").addClass("card-text").text("Temp: " + data.list[i].main.temp + "F")
+                    card.append(cityName, date, temperature);
+                    $("#weatherForecast").append(card);
+                }
+            }
             
         })
     }

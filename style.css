@@ -34,3 +34,15 @@ ul {
     width: 115%; 
     margin-left: -17% !important;   
 }
+
+#forecastCard {
+    border: 1px solid black;
+    background-color: rgba(4, 135, 164, 0.385);
+    padding: 20px;
+    display: inline-block;
+    margin-right: 3%;
+}
+
+#forecastCityName {
+    text-align: center;
+}
