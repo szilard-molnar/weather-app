@@ -2,7 +2,7 @@
 
 Technologies used: HTML5, CSS3, JavaScript, jQuery, API, AJAX
 
-This application uses Open Weather Map API to render live weather information about any cities around the world. The user needs to type in the city that he wants to get weather information about and the application pulls the current weather information and a 5 day weather forecast.
+This application uses Open Weather Map API to render live weather information about any cities around the world. When the user types in the name of the city and clicks "Search", the app fetches information from the API and renders it on the screen. This information will be the current weather conditions, and a 5-days forecast.
 
 ![app screenshot](/images/weather-forecast.png)
 
