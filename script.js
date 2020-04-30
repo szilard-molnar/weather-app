@@ -12,6 +12,11 @@ $(document).ready(function() {
 
     });
 
+    $("#previousSearches").on("click", "button", function() {
+        currentWeatherData($(this).text());
+        fiveDayForecast($(this).text());
+    })
+
     function addCityToList (inputCity) {
         let newRow = $("<button>").addClass("newAddedRow").text(inputCity);
         $("#previousSearches").append(newRow);
