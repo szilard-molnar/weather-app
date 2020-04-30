@@ -2,7 +2,6 @@ $(document).ready(function() {
 
     $("#searchButton").on("click", function() {
         let inputCity = $("#citySearch").val();
-        localStorage.setItem("city", inputCity);
 
         addCityToList(inputCity);
 
@@ -28,6 +27,12 @@ $(document).ready(function() {
             method: "GET",
             url: "http://api.openweathermap.org/data/2.5/weather?q=" + inputCity + "&units=imperial&appid=d4e0d5067632cdd06a4bad12b5b1e650"
         }).then(function(data) {
+
+            if(history.indexOf(inputCity) === -1)
+            {
+                history.push(inputCity);
+                window.localStorage.setItem("history", JSON.stringify(history));
+            }
             
             //html content to create city card to display info
             let card = $("<div>").addClass("card");
@@ -72,6 +77,19 @@ $(document).ready(function() {
             }
             
         })
+    }
+
+    var history = JSON.parse(window.localStorage.getItem("history")) || [];
+
+    if(history.length > 1)
+    {
+        currentWeatherData(history[history.length-1]);
+        fiveDayForecast(history[history.length-1])
+    }
+
+    for(let i = 0; i < history.length; i++)
+    {
+        addCityToList(history[i]);
     }
 
 });
