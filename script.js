@@ -31,7 +31,7 @@ $(document).ready(function() {
             if(history.indexOf(inputCity) === -1)
             {
                 history.push(inputCity);
-                window.localStorage.setItem("history", JSON.stringify(history));
+                localStorage.setItem("history", history);
             }
             
             //html content to create city card to display info
@@ -79,7 +79,7 @@ $(document).ready(function() {
         })
     }
 
-    var history = JSON.parse(window.localStorage.getItem("history")) || [];
+    var history = localStorage.getItem("history").split(",") || [];
 
     if(history.length > 1)
     {
