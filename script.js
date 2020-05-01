@@ -79,7 +79,11 @@ $(document).ready(function() {
         })
     }
 
-    var history = localStorage.getItem("history").split(",") || [];
+    var history = [];
+    if(localStorage.getItem("history"))
+    {
+        history = localStorage.getItem("history").split(",")
+    }
 
     if(history.length > 1)
     {
@@ -89,7 +93,8 @@ $(document).ready(function() {
 
     for(let i = 0; i < history.length; i++)
     {
-        addCityToList(history[i]);
+        var cityToAdd = history[i].charAt(0).toUpperCase() + history[i].substring(1)
+        addCityToList(cityToAdd);
     }
 
 });
