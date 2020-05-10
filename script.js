@@ -1,6 +1,11 @@
 $(document).ready(function() {
 
     $("#searchButton").on("click", function() {
+        if($("#citySearch").val() === "")
+        {
+            alert("enter a city")
+        }
+
         let inputCity = $("#citySearch").val();
 
         addCityToList(inputCity);
@@ -50,7 +55,7 @@ $(document).ready(function() {
     function fiveDayForecast (inputCity) {
         $.ajax({
             method: "GET",
-            url: "https://api.openweathermap.org/data/2.5/forecast?appid=70e75079715aaa88f8897acff6d0352b&q=" + inputCity
+            url: "https://api.openweathermap.org/data/2.5/forecast?appid=70e75079715aaa88f8897acff6d0352b&q=" + inputCity + "&units=imperial"
         }).then(function(data) {
 
             $("#weatherForecast").html("<h2>5-Day Forecast</h2>").append("<div class=\"row\">");
